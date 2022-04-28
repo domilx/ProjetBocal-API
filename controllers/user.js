@@ -8,7 +8,6 @@ exports.getUsers = (req, res, next) => {
 }
 
 exports.postUser = (req, res, next) => {
-    console.log(req);
     const user = {
         id: users.length,
         name: req.body.name,
