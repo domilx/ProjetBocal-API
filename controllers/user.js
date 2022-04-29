@@ -1,15 +1,5 @@
 const users = [];
 
-var nameSchema = new mongoose.Schema({
-    fullname: String,
-    username: String,
-    password: String,
-    id: Number,
-    time: String
-});
-
-var User = mongoose.model('User', nameSchema);
-
 exports.getUsers = (req, res, next) => {
     res.status(200).json({
         message: "Users fetched successfully!",
