@@ -20,6 +20,63 @@ exports.getUsers = async (req, res, next) => {
     }
 }
 
+exports.loginUser = async (req, res, next) => {
+    //get all users
+    try {
+        const user = await User.findOne({
+            email: req.body.email,
+            password: req.body.password
+        });
+        if (!user) {
+            res.status(401).json({
+                message: "Invalid Credentials!"
+            });
+        }
+        res.status(200).json({
+            message: "User logged in successfully!",
+            user: user
+        });
+    } catch (err) {
+        //server error
+        res.status(500).json({
+            message: err
+        });
+    }
+}
+
+exports.updateUser = async (req, res, next) => {
+    //update user
+    try {
+        const user = await User.findById(req.params.id);
+        if (!user) {
+            //user not found
+            return res.status(404).json({
+                message: "User not found!"
+            });
+        }
+        const updatedUser = await User.updateOne({
+            _id: req.params.id
+        }, {
+            $set: {
+                name: req.body.name,
+                email: req.body.email,
+                password: req.body.password,
+                isAdmin: req.body.isAdmin
+            }
+        });
+        res.status(200).json({
+            message: "User updated successfully!",
+            updatedUser: updatedUser
+        });
+    } catch (err) {
+        //server error
+        res.status(500).json({
+            message: err
+        });
+    }
+}
+
+
 exports.postUser = async (req, res, next) => {
     //create a new user
     const user = new User({
@@ -28,15 +85,14 @@ exports.postUser = async (req, res, next) => {
         password: req.body.password
     });
     //check if user already exists
-    /*
-    if (await user.findOne({
+    if (await User.findOne({
             email: req.body.email
         })) {
         //user already exists
-        res.status(400).json({
+        return res.status(400).json({
             message: "User already exists!"
         });
-    } */
+    }
     //save user
     try {
         const savedUser = await user.save();

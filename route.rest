@@ -1,12 +1,37 @@
-GET http://localhost:3000/user/list
+
+//LIST
+GET http://localhost:3000/user/list/
 
 ###
 
-POST http://localhost:3000/user/add
+//REGISTER
+POST http://localhost:3000/user/add/
 Content-Type: application/json
 
 {
     "name": "Domenico Valentino",
-    "email": "domenico2727@gmail.com",
+    "email": "email@email.com",
     "password": "Passowrd5!"
+}
+
+###
+//UPDATE
+POST http://localhost:3000/user/update/
+Content-Type: application/json
+
+{
+    "name": "Name Changed",
+    "email": "email@email.com",
+    "password": "Changed"
+}
+
+###
+
+//LOGIN
+POST http://localhost:3000/user/login/
+Content-Type: application/json
+
+{
+    "email": "email@email.com",
+    "password": "Changed"
 }
