@@ -1,30 +1,52 @@
-const users = [];
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require("mongoose");
+const user = require('../models/user');
+const router = express.Router();
 
-exports.getUsers = (req, res, next) => {
-    res.status(200).json({
-        message: "Users fetched successfully!",
-        users: users
-    });
+exports.getUsers = async (req, res, next) => {
+    //get all users
+    try {
+        const users = await user.find();
+        res.status(200).json({
+            message: "Users fetched successfully!",
+            users: users
+        });
+    } catch (err) {
+        //server error
+        res.status(500).json({
+            message: err
+        });
+    }
 }
 
-exports.postUser = (req, res, next) => {
-    //check if username already exists
-    if (users.find(user => user.username === req.body.username)) {
+exports.postUser = async (req, res, next) => {
+    //create a new user
+    const user = new user({
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password
+    });
+    //check if user already exists
+    if (await user.findOne({
+            email: req.body.email
+        })) {
+        //user already exists
         res.status(400).json({
-            message: "Username already exists!"
+            message: "User already exists!"
         });
-    } else {
-        const user = {
-            fullname: req.body.fullname,
-            username: req.body.username,
-            password: req.body.password,
-            id: users.length,
-            time: new Date().toLocaleString()
-        }
-        users.push(user);
+    }
+    //save user
+    try {
+        const savedUser = await user.save();
         res.status(201).json({
-            message: "User created successfully!",
-            user: user
+            message: "User added successfully!",
+            user: savedUser
+        });
+    } catch (err) {
+        //user did not fill in all fields
+        res.status(400).json({
+            message: err
         });
     }
 }

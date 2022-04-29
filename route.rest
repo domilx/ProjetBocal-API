@@ -1,0 +1,12 @@
+GET http://localhost:3000/user/list
+
+###
+
+POST http://localhost:3000/user/add
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "apple@apple.com",
+    "password": "12345678"
+}
