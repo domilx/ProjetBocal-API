@@ -6,7 +6,7 @@ POST http://localhost:3000/user/add
 Content-Type: application/json
 
 {
-    "name": "John Doe",
-    "email": "apple@apple.com",
-    "password": "12345678"
+    "name": "Domenico Valentino",
+    "email": "domenico2727@gmail.com",
+    "password": "Passowrd5!"
 }

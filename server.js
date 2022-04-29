@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 const db = mongoose.connection
 
 //connect to mongoose
-mongoose.connect('mongodb+srv://user:pass@cluster0.sfaag.mongodb.net/test', {
+mongoose.connect('mongodb+srv://user:pass@cluster0.sfaag.mongodb.net/API', {
     useNewUrlParser: true
 })
 db.on('error', (error) => console.error(error))
