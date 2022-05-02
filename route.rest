@@ -35,3 +35,14 @@ Content-Type: application/json
     "email": "email@email.com",
     "password": "Changed"
 }
+
+###
+
+//DELETE
+
+POST http://localhost:3000/user/delete/
+Content-Type: application/json
+
+{
+    "id": "1"
+}

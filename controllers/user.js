@@ -76,7 +76,6 @@ exports.updateUser = async (req, res, next) => {
     }
 }
 
-
 exports.postUser = async (req, res, next) => {
     //create a new user
     const user = new User({
@@ -103,6 +102,31 @@ exports.postUser = async (req, res, next) => {
     } catch (err) {
         //user did not fill in all fields
         res.status(400).json({
+            message: err
+        });
+    }
+}
+
+//delete user
+exports.deleteUser = async (req, res, next) => {
+    try {
+        const user = await User.findById(req.params.id);
+        if (!user) {
+            //user not found
+            return res.status(404).json({
+                message: "User not found!"
+            });
+        }
+        const deletedUser = await User.deleteOne({
+            _id: req.params.id
+        });
+        res.status(200).json({
+            message: "User deleted successfully!",
+            deletedUser: deletedUser
+        });
+    } catch (err) {
+        //server error
+        res.status(500).json({
             message: err
         });
     }
