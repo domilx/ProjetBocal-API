@@ -1,19 +1,5 @@
 # Projet Bocal
 
-<details>
-  <summary>Table des matières</summary>
-  <ol>
-    <li><a href="#description">Description</a></li>
-    <li><a href="#prérequis">Prérequis</a></li>
-    <li><a href="#exécution">Exécution</a></li>
-    <li><a href="#auteurs">Auteurs</a></li>
-    <li><a href="#histoire-des-versions">Historique des versions</a></li>
-    <li><a href="#license">License</a></li>
-  </ol>
-</details>
-
-<p></p>
-
  - FR : Centralisateur de Regina. 
  - EN : Centralisation for all things Regina
 ## Description
@@ -26,6 +12,51 @@
     - Consolidate Coba, Moodle, Assignments in one platform
     - Only reuse Classroom using its API (site integration)
     - For e-book sites, just add a link (integration if possible).
+
+## Documentation
+This program is a RESTful API. A RESTful API is an API that follows the rules of the HTTP protocol. In our case, we use the HTTP protocol to communicate with our database. Here are the different rules of the HTTP protocol:
+<p></p>
+GET http://localhost:3000/user/list -  List all users
+<p></p>
+GET http://localhost:3000/user/list/user/:id - Get a user by id
+<p></p>
+POST http://localhost:3000/user/delete/:id - Delete a user by id
+<p></p>
+
+#### JSON Body
+POST http://localhost:3000/user/add - Create a user
+<p></p>
+
+
+```javascript
+{
+    "name": "Domenico Valentino",
+    "email": "email@email.com",
+    "password": "Passowrd5!"
+}
+```
+
+<p></p>
+POST http://localhost:3000/user/update/:id - Update a user by id
+<p></p>
+
+```javascript
+{
+    "name": "Name Changed",
+    "email": "email@email.com",
+    "password": "Changed"
+}
+```
+
+POST http://localhost:3000/user/login - Login a user
+<p></p>
+
+```javascript
+{
+    "email": "email@email.com",
+    "password": "Passowrd5!"
+}
+```
 
 # Développement
 
@@ -42,7 +73,7 @@
 3. Exécuter cette commande sous le projet.
 
 ```
-$ nodemon app.js
+$ npm run dev
 ```
 
 ## Auteurs

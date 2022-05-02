@@ -20,6 +20,22 @@ exports.getUsers = async (req, res, next) => {
     }
 }
 
+exports.getUser = async (req, res, next) => {
+    //get a user by id
+    try {
+        const user = await User.findById(req.params.id);
+        res.status(200).json({
+            message: "User fetched successfully!",
+            user: user
+        });
+    } catch (err) {
+        //server error
+        res.status(500).json({
+            message: err
+        });
+    }
+}
+
 exports.loginUser = async (req, res, next) => {
     //get all users
     try {

@@ -17,4 +17,7 @@ router.post("/login", userController.loginUser);
 //POST request for deleting a user
 router.post("/delete/:id", userController.deleteUser);
 
+//GET request for getting a user by id
+router.get("list/user/:id", userController.getUser);
+
 module.exports = router;
