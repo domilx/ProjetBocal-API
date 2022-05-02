@@ -1,6 +1,17 @@
-2022-04-28 : > Created 2 Repos
-             > Succesful connection to DB
-             > Starting GET / POST of user on Mongo: https://www.youtube.com/watch?v=fgTGADljAeg
-2022-04-29 : > Added more fields to login
-             > Starting additions to DB
-             > Mongoose added To be tested
+## Users:
+
+### 2022-04-28 
+- Created 2 Repos
+- Succesful connection to DB
+- Starting GET / POST of User on Mongo: https://www.youtube.com/watch?v=fgTGADljAeg
+  
+### 2022-04-29
+- Added more fields to login
+- Starting additions to DB
+- Mongoose added to be tested
+  
+### 2022-05-02
+- Done User registration!
+- Added more fields to User
+- Addition of POSTMAN config
+---
