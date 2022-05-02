@@ -16,15 +16,15 @@
 ## Documentation
 This program is a RESTful API. A RESTful API is an API that follows the rules of the HTTP protocol. In our case, we use the HTTP protocol to communicate with our database. Here are the different rules of the HTTP protocol:
 <p></p>
-GET http://localhost:3000/user/list -  List all users
+GET http://localhost:3000/user/get -  List all users
 <p></p>
-GET http://localhost:3000/user/list/user/:id - Get a user by id
+GET http://localhost:3000/user/getId/:id - Get a user by id
 <p></p>
 POST http://localhost:3000/user/delete/:id - Delete a user by id
 <p></p>
 
 #### JSON Body
-POST http://localhost:3000/user/add - Create a user
+POST http://localhost:3000/user/register - Create a user
 <p></p>
 
 
