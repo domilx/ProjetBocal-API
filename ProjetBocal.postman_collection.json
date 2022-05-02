@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "8830f9d3-72ec-4b52-b9de-ff4dee234935",
+		"name": "ProjetBocal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Domenico Valentino\",\r\n    \"email\": \"email@email.com\",\r\n    \"password\": \"Passowrd5!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://bocalapi.herokuapp.com/user/add",
+					"protocol": "https",
+					"host": [
+						"bocalapi",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"user",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://bocalapi.herokuapp.com/user/list",
+					"protocol": "https",
+					"host": [
+						"bocalapi",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"user",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"email@email.com\",\r\n    \"password\": \"Passowrd5!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://bocalapi.herokuapp.com/user/login",
+					"protocol": "https",
+					"host": [
+						"bocalapi",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Name Changed\",\r\n    \"email\": \"email@email.com\",\r\n    \"password\": \"Changed\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://bocalapi.herokuapp.com/user/update/<ID>",
+					"protocol": "https",
+					"host": [
+						"bocalapi",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"user",
+						"update",
+						"<ID>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://bocalapi.herokuapp.com/user/delete",
+					"protocol": "https",
+					"host": [
+						"bocalapi",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"user",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
