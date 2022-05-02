@@ -1,10 +1,31 @@
 {
 	"info": {
-		"_postman_id": "8830f9d3-72ec-4b52-b9de-ff4dee234935",
+		"_postman_id": "3b3a8f43-9489-4233-abdb-a5604ae7db3f",
 		"name": "ProjetBocal",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
+		{
+			"name": "List User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://bocalapi.herokuapp.com/user/list",
+					"protocol": "https",
+					"host": [
+						"bocalapi",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"user",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
 		{
 			"name": "Register",
 			"request": {
@@ -30,27 +51,6 @@
 					"path": [
 						"user",
 						"add"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "List User",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://bocalapi.herokuapp.com/user/list",
-					"protocol": "https",
-					"host": [
-						"bocalapi",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"user",
-						"list"
 					]
 				}
 			},
