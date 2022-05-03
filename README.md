@@ -1,4 +1,4 @@
-# Projet Bocal
+# Projet Bocal API
 
  - FR : Centralisateur de Regina. 
  - EN : Centralisation for all things Regina
@@ -72,7 +72,7 @@ POST http://localhost:3000/user/login - Login a user
 2. Installer les prérequis ci-dessus.
 3. Exécuter cette commande sous le projet.
 
-```
+```bash
 $ npm run dev
 ```
 
@@ -88,16 +88,3 @@ Programmeurs
 
 Aide et contribution
  - Camil Bisson [@CamilBis](https://github.com/CamilBis)
-
-
-## Historique des versions
-
-* 0.2
-    * Fix de plusieurs bugs et optimisation
-    * Voir [commit change]() ou [release history]()
-* 0.1
-    * Version initiale
-
-## License
-
-Le projet est licensié sour la license MIT - voir le fichier LICENSE.md pour plus de détails
