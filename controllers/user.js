@@ -34,6 +34,12 @@ exports.getUser = async (req, res, next) => {
             message: err
         });
     }
+    //if no id is provided
+    if (!req.params.id) {
+        res.status(500).json({
+            message: "No id provided"
+        });
+    }
 }
 
 exports.loginUser = async (req, res, next) => {
