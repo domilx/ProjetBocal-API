@@ -23,10 +23,14 @@ exports.getUser = async (req, res, next) => {
     //get a user by id
     try {
         const user = await User.findById(req.params.id);
-        res.status(200).json({
-            message: "User fetched successfully!",
-            user: user
-        });
+        if (!user) {
+            return errorCreator(404, "User not found", next)
+        } else {
+            res.status(200).json({
+                message: "User fetched successfully!",
+                user: user
+            });
+        }
     } catch (err) {
         //server error
         return errorCreator(500, "Server-side error", next)
