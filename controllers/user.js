@@ -76,16 +76,17 @@ exports.updateUser = async (req, res, next) => {
                 message: "User not found!"
             });
         }
+        const tempUser = {
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password,
+            isAdmin: req.body.isAdmin
+        };
+
         const updatedUser = await User.updateOne({
             _id: req.params.id
-        }, {
-            $set: {
-                name: req.body.name,
-                email: req.body.email,
-                password: req.body.password,
-                isAdmin: req.body.isAdmin
-            }
-        });
+        }, tempUser);
+
         res.status(200).json({
             message: "User updated successfully!",
             updatedUser: updatedUser
