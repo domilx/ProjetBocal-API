@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 const User = require('../models/user');
 const router = express.Router();
+const errorCreator = require('../functions/errorCreator');
 
 exports.getUsers = async (req, res, next) => {
     //get all users
@@ -14,9 +15,7 @@ exports.getUsers = async (req, res, next) => {
         });
     } catch (err) {
         //server error
-        res.status(500).json({
-            message: err
-        });
+        errorCreator(500, "Server-side error", next)
     }
 }
 
@@ -30,15 +29,11 @@ exports.getUser = async (req, res, next) => {
         });
     } catch (err) {
         //server error
-        res.status(500).json({
-            message: err
-        });
+        return errorCreator(500, "Server-side error", next)
     }
     //if no id is provided
     if (!req.params.id) {
-        res.status(500).json({
-            message: "No id provided"
-        });
+        errorCreator(400, "No id provided", next)
     }
 }
 
@@ -50,9 +45,7 @@ exports.loginUser = async (req, res, next) => {
             password: req.body.password
         });
         if (!user) {
-            res.status(401).json({
-                message: "Invalid Credentials!"
-            });
+            return errorCreator(401, "Invalid credentials!", next)
         }
         res.status(200).json({
             message: "User logged in successfully!",
@@ -60,9 +53,7 @@ exports.loginUser = async (req, res, next) => {
         });
     } catch (err) {
         //server error
-        res.status(500).json({
-            message: err
-        });
+        errorCreator(500, "Server-side error", next)
     }
 }
 
@@ -72,9 +63,7 @@ exports.updateUser = async (req, res, next) => {
         const user = await User.findById(req.params.id);
         if (!user) {
             //user not found
-            return res.status(404).json({
-                message: "User not found!"
-            });
+            return errorCreator(404, "User not found!", next)
         }
         const tempUser = {
             name: req.body.name,
@@ -93,9 +82,7 @@ exports.updateUser = async (req, res, next) => {
         });
     } catch (err) {
         //server error
-        res.status(500).json({
-            message: err
-        });
+        errorCreator(500, "Server-side error", next)
     }
 }
 
@@ -111,9 +98,7 @@ exports.postUser = async (req, res, next) => {
             email: req.body.email
         })) {
         //user already exists
-        return res.status(400).json({
-            message: "User already exists!"
-        });
+        return errorCreator(400, "User already exists!", next)
     }
     //save user
     try {
@@ -124,9 +109,7 @@ exports.postUser = async (req, res, next) => {
         });
     } catch (err) {
         //user did not fill in all fields
-        res.status(400).json({
-            message: err
-        });
+        errorCreator(500, "Server-side error", next)
     }
 }
 
@@ -136,9 +119,7 @@ exports.deleteUser = async (req, res, next) => {
         const user = await User.findById(req.params.id);
         if (!user) {
             //user not found
-            return res.status(404).json({
-                message: "User not found!"
-            });
+            return errorCreator(404, "User not found!", next)
         }
         const deletedUser = await User.deleteOne({
             _id: req.params.id
@@ -149,8 +130,6 @@ exports.deleteUser = async (req, res, next) => {
         });
     } catch (err) {
         //server error
-        res.status(500).json({
-            message: err
-        });
+        errorCreator(500, "Server-side error", next)
     }
 }

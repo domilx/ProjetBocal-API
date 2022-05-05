@@ -20,5 +20,12 @@ app.use(bodyParser.json());
 app.use("/user", userRoutes);
 app.listen(port);
 
+app.use((err, req, res, next) => { //next is used to move to the next middleware
+    console.log(err.message);
+    res.status(err.status).json({
+        message: err.message
+    });
+});
+
 //server started
 console.log('Server started at http://localhost:' + port);
