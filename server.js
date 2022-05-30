@@ -6,7 +6,7 @@ const app = express();
 const userRoutes = require('./routes/user');
 
 //define variables
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 const db = mongoose.connection
 
 //connect to mongoose
@@ -20,7 +20,7 @@ db.once('open', () => console.log('Connected to Database'))
 app.use(cors());
 app.use(bodyParser.json());
 app.use("/user", userRoutes);
-app.listen(port);
+app.set("port", PORT);
 
 app.use((err, req, res, next) => { //next is used to move to the next middleware
     console.log(err.message);
