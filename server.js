@@ -6,7 +6,7 @@ const app = express();
 const userRoutes = require('./routes/user');
 
 //define variables
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 const db = mongoose.connection
 
 //connect to mongoose
