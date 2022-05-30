@@ -5,7 +5,7 @@
   "main": "server.js",
   "engines": {
     "node": "16.15.0",
-    "npm":  "8.5.5"
+    "npm": "8.5.5"
   },
   "scripts": {
     "dev": "nodemon server",
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/domilx/ProjetBocal",
   "dependencies": {
     "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-flash": "^0.0.2",
     "express-session": "^1.17.2",
