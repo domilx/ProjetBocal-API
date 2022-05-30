@@ -29,5 +29,5 @@ app.use((err, req, res, next) => { //next is used to move to the next middleware
     });
 });
 
-//server started
+//Server started
 console.log('Server started at http://localhost:' + port);
